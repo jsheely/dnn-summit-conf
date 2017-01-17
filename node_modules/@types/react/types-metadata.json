@@ -1,0 +1,28 @@
+{
+    "name": "react",
+    "libraryName": "React",
+    "sourceRepoURL": "https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+    "data": {
+        "authors": "Asana <https://asana.com>, AssureSign <http://www.assuresign.com>, Microsoft <https://microsoft.com>, John Reilly <https://github.com/johnnyreilly/>",
+        "dependencies": {},
+        "libraryMajorVersion": 15,
+        "libraryMinorVersion": 0,
+        "typeScriptVersion": "2.0",
+        "libraryName": "React",
+        "typingsPackageName": "react",
+        "projectName": "http://facebook.github.io/react/",
+        "sourceRepoURL": "https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+        "globals": [
+            "React"
+        ],
+        "declaredModules": [
+            "react/."
+        ],
+        "files": [
+            "index.d.ts"
+        ],
+        "hasPackageJson": false,
+        "contentHash": "57484b2cba725365635d893423d9fe522dd132d3d6d80443ae81fe741ed8679b"
+    },
+    "isLatest": true
+}
