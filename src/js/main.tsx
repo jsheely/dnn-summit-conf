@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+declare var React: any;
+declare var ReactDOM: any;
 
 ReactDOM.render(
     <p className="red">Hello DNN Summit</p>,
