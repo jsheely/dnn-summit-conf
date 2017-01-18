@@ -8,6 +8,7 @@ const tsify = require('tsify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const watch = require('gulp-watch');
+const msbuild = require('gulp-msbuild');
 
 gulp.task('clean', () => {
     return gulp.src('./dist').pipe(clean());
@@ -51,6 +52,13 @@ gulp.task('watch', (next) => {
     return watch('./src/**/*', () => {
         gulp.run('default');
     });
+});
+
+gulp.task('csproj', () => {
+    return gulp.src('./WebApp.sln')
+        .pipe(msbuild({
+            configuration: 'Debug',
+        }));
 });
 
 gulp.task('default', (next) => {
