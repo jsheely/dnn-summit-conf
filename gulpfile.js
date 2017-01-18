@@ -7,6 +7,7 @@ const browserify = require('browserify');
 const tsify = require('tsify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const watch = require('gulp-watch');
 
 gulp.task('clean', () => {
     return gulp.src('./dist').pipe(clean());
@@ -44,6 +45,12 @@ gulp.task('browserify', () => {
         .pipe(source('main.js'))
         .pipe(buffer())
         .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('watch', (next) => {
+    return watch('./src/**/*', () => {
+        gulp.run('default');
+    });
 });
 
 gulp.task('default', (next) => {
