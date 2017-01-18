@@ -33,13 +33,14 @@ gulp.task('build-typescript', () => {
 //     dest: './dist'
 // }]));
 gulp.task('browserify', () => {
-    var bundle = browserify({
-        debug: true,
-        entries: './src/js/main.tsx',
-        plugin: ['tsify']
-    });
 
-    return bundle.bundle()
+    return browserify({
+            debug: true,
+            entries: './src/js/main.tsx'
+        })
+        .plugin(tsify)
+        .transform('browserify-shim')
+        .bundle()
         .pipe(source('main.js'))
         .pipe(buffer())
         .pipe(gulp.dest('./dist/js'));
