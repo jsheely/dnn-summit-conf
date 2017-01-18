@@ -9,6 +9,7 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const watch = require('gulp-watch');
 const msbuild = require('gulp-msbuild');
+const zip = require('gulp-zip');
 
 gulp.task('clean', () => {
     return gulp.src('./dist').pipe(clean());
@@ -59,6 +60,12 @@ gulp.task('csproj', () => {
         .pipe(msbuild({
             configuration: 'Debug',
         }));
+});
+
+gulp.task('ship-it', () => {
+    return gulp.src(['./*', '!./releases'])
+        .pipe(zip('Module_Install.zip'))
+        .pipe(gulp.dest('releases'));
 });
 
 gulp.task('default', (next) => {

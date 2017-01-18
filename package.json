@@ -34,6 +34,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-typescript": "^3.1.4",
     "gulp-typescript-browserify": "0.0.5",
+    "gulp-zip": "^3.2.0",
     "html-loader": "^0.4.4",
     "node-sass": "^4.3.0",
     "reactify": "^1.1.1",
