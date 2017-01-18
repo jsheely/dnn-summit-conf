@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-export default class Thing extends React.Component<any,any> {
+interface ThingProps {
+    number: number
+}
+
+export default class Thing extends React.Component<ThingProps,any> {
     constructor() {
         super();
     }
