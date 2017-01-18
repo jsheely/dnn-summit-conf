@@ -3,6 +3,10 @@ const ts = require('gulp-typescript');
 const clean = require('gulp-clean');
 const sass = require('gulp-sass');
 const seq = require('run-sequence');
+const browserify = require('browserify');
+const tsify = require('tsify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
 gulp.task('clean', () => {
     return gulp.src('./dist').pipe(clean());
@@ -24,6 +28,23 @@ gulp.task('build-typescript', () => {
         })).js.pipe(gulp.dest('./dist/'))
 });
 
+// gulp.task('browserify', browserify([{
+//     entries: './src/js/main.tsx',
+//     dest: './dist'
+// }]));
+gulp.task('browserify', () => {
+    var bundle = browserify({
+        debug: true,
+        entries: './src/js/main.tsx',
+        plugin: ['tsify']
+    });
+
+    return bundle.bundle()
+        .pipe(source('main.js'))
+        .pipe(buffer())
+        .pipe(gulp.dest('./dist/js'));
+});
+
 gulp.task('default', (next) => {
-    seq('clean', ['sass', 'build-typescript'], next);
+    seq('clean', ['sass', 'browserify'], next);
 });

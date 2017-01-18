@@ -1,7 +1,9 @@
-declare var React: any;
-declare var ReactDOM: any;
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+import Thing from './thing'
 
 ReactDOM.render(
-    <p className="red">Hello DNN Summit</p>,
+    <div className="red"><Thing /></div>,
     document.getElementById('appBody')
 );
